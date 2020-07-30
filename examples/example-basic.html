@@ -2,53 +2,43 @@
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Medea Example: Basic</title>
+    <title>YML Manager</title>
     <link rel="stylesheet" media="all" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="all" href="style.css">
     <script src="../vendor/jquery/jquery-3.3.1.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
-    <script src="../lib/jquery.medea.js"></script>
+    <script src="mediabundle.js"></script>
     <script src="utils.js"></script>
 </head>
 <body class="container">
 
-    <a href="index.html">examples</a>
+    <!--<a href="index.html">examples</a>-->
 
-    <h2>Basic Example</h2>
-    <p>Simplest use of medea: turn object into form and vv</p>
+    <h2>YAML Manager</h2>
 
-    <h3>Code</h3>
-    <pre><code>$(selector).medea(object);</code></pre>
+   <!-- <h3>Code</h3> -->
+    <!--<pre><code>$(selector).medea(object);</code></pre>-->
+	<input type="file" id="selectFiles" value="Import" /><br />
+	<button id="import">Import</button>
 
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row single">
+        
+        <div>
             <h4>Source</h4>
+            <pre>
             <div id="source"></div>
-            <h4>Events</h4>
-            <div id="events"></div>
+            </pre>
         </div>
-        <div class="col-md-7">
+
+    </div>
+    <div class="row">
+        <div>
             <h4>Form</h4>
             <div id="form"></div>
         </div>
     </div>
 
-    <script>
-        $(function() { 
-
-            var obj = utils.testObject;
-
-            var form = $("#form").medea(obj);
-
-            form.on("medea.add",    utils.logEvent("events"));
-            form.on("medea.cancel", utils.logEvent("events"));
-            form.on("medea.toggle", utils.logEvent("events"));
-            form.on("medea.submit", utils.logObjectChangeEvent("source"));
-
-            utils.prettyPrintSource(obj, "source");
-
-        });
-    </script>
+    <script src="bundle.js" > </script>
 
 </body>
 </html>

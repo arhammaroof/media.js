@@ -49,23 +49,35 @@ var utils = (function() {
     };
 
     var testObject = { 
-        name: { 
-            firstName: "John",
-            lastName: "Smith"
-        },
-        personal: { 
-            age: 42,
-            likesIceCream: true
-        },
-        hobbies: [ 
-            "football",
-            "golf"
-        ],
-        address: { 
-            road: { number: "1", street: "the street" },
-            town: "townington",
-            county: "Shireshire"
-        }
+    "app_config" : {
+		"vs" : {
+			"liveStreamProducerUrlPrefix" : "rtmp://${endpoints.ms.local}:1935",
+			"liveStreamConsumerUrlPrefix" : "http://${endpoints.ms.host}:8080",
+			"streamingApplication" : "hls",
+			"far_left_camera" : {
+			"serial_number" : 0,
+			"location" : "farLeft",
+			"streamingChannel" : "${app_config.vs.streamingApplication}/${cart_id}-${app_config.vs.far_left_camera.location}",
+			"liveStreamProducerUrl" : "${app_config.vs.liveStreamProducerUrlPrefix}/${app_config.vs.far_left_camera.streamingChannel}",
+			"liveStreamConsumerUrl" : "${app_config.vs.liveStreamConsumerUrlPrefix}/${app_config.vs.far_left_camera.streamingChannel}.m3u8",
+			"enableGesture" : false,
+			"streamCamera" : false,
+			"storeData" : false,
+			"storeRGBData" : false,
+			"storeDepthData" : false,
+			"rimPoints" : {
+					"x1" : 10,
+					"y1" : 10,
+					"x2" : 10,
+					"y2" : 10,
+					"x3" : 10,
+					"y3" : 10,
+					"x4" : 10,
+					"y4" : 10
+					}
+				}
+			}
+		}
     };
 
     return { 
